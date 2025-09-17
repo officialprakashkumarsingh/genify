@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Genify - AI Web App Generator
+
+Genify is a powerful AI-powered web application generator that creates complete, production-ready web applications based on your descriptions. Built with Next.js, TypeScript, and Tailwind CSS.
+
+## Features
+
+- 🤖 **AI-Powered Generation**: Uses advanced AI models to generate complete web applications
+- 🎨 **10 Design Styles**: Choose from minimalistic, modern, professional, creative, and more
+- ⚡ **Real-time Streaming**: Watch your code being generated in real-time
+- 📱 **Mobile Optimized**: All generated applications are mobile-responsive
+- 🔄 **Follow-up Editing**: Iteratively improve your generated applications with AI
+- 👀 **Live Preview**: Preview your HTML applications instantly
+- 📦 **Export as ZIP**: Download your complete project files
+- 🚀 **One-click Deploy**: Deploy to Vercel with a single click
+- 💻 **Syntax Highlighting**: Beautiful code display with proper formatting
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <your-repo-url>
+cd genify
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Start the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Learn More
+## Usage
 
-To learn more about Next.js, take a look at the following resources:
+1. **Select an AI Model**: Choose from available models like GPT-4, Gemini, etc.
+2. **Choose Design Style**: Pick from 10 different design aesthetics
+3. **Describe Your App**: Enter a detailed description of what you want to build
+4. **Generate**: Click "Generate Application" and watch the code stream in real-time
+5. **Preview**: View your application in the built-in preview
+6. **Iterate**: Use the follow-up feature to make changes and improvements
+7. **Export**: Download your project as a ZIP file
+8. **Deploy**: One-click deployment to Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Design Styles
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Minimalistic**: Clean, simple design with lots of whitespace
+- **Modern**: Contemporary design with bold typography
+- **Professional**: Business-oriented, corporate aesthetic
+- **Creative**: Artistic and expressive with vibrant colors
+- **Dark Theme**: Dark background with light text
+- **Retro**: Vintage-inspired design elements
+- **Futuristic**: Sci-fi inspired with neon accents
+- **Elegant**: Sophisticated and refined appearance
+- **Playful**: Fun and colorful with rounded elements
+- **Material Design**: Google Material Design principles
 
-## Deploy on Vercel
+## API Configuration
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The application uses an OpenAI-compatible API endpoint. The configuration is set in `src/lib/api.ts`:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Endpoint**: `https://longcat-openai-api.onrender.com/v1`
+- **Models**: Supports various models including GPT-4, Gemini, and more
+
+## Technologies Used
+
+- **Framework**: Next.js 14 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: Custom components with Radix-like patterns
+- **Code Highlighting**: React Syntax Highlighter
+- **File Export**: JSZip
+- **Icons**: Lucide React
+
+## Deployment
+
+### Deploy to Vercel
+
+1. Push your code to a Git repository
+2. Connect your repository to Vercel
+3. Deploy with default settings
+
+Or use the Vercel CLI:
+
+```bash
+npm i -g vercel
+vercel
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+MIT License - see LICENSE file for details
+
+## Support
+
+For support, please open an issue on GitHub or contact the development team.

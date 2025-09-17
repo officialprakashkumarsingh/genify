@@ -1,15 +1,18 @@
-# Genify Deployment Guide
+# Deploy Genify to Vercel
 
-## Quick Deploy to Vercel
+This guide shows how to deploy the Genify application itself to Vercel.
+
+## 🚀 Quick Deploy to Vercel
 
 ### Option 1: One-Click Deploy (Recommended)
 
-1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com)
-3. Click "New Project"
-4. Import your GitHub repository
-5. Vercel will automatically detect Next.js and configure everything
-6. Click "Deploy"
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/genify)
+
+1. Click the deploy button above
+2. Connect your GitHub account if needed
+3. Vercel will automatically detect Next.js and configure everything
+4. Click "Deploy"
+5. Your Genify app will be live!
 
 ### Option 2: Vercel CLI
 

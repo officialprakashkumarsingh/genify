@@ -28,6 +28,9 @@ interface GeneratedProject {
   selectedDesign: string
 }
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 export default function HomePage() {
   // State management
   const [models, setModels] = useState<Model[]>([])
@@ -39,6 +42,7 @@ export default function HomePage() {
   const [isFollowingUp, setIsFollowingUp] = useState<boolean>(false)
   const [generatedCode, setGeneratedCode] = useState<string>('')
   const [currentProject, setCurrentProject] = useState<GeneratedProject | null>(null)
+  const [isClient, setIsClient] = useState<boolean>(false)
   
   // Modal states
   const [isDesignModalOpen, setIsDesignModalOpen] = useState<boolean>(false)
@@ -48,17 +52,33 @@ export default function HomePage() {
   // Refs
   const codeEndRef = useRef<HTMLDivElement>(null)
 
+  // Ensure client-side rendering
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   // Load models on component mount
   useEffect(() => {
+    if (!isClient) return
+    
     const loadModels = async () => {
-      const fetchedModels = await fetchModels()
-      setModels(fetchedModels)
-      if (fetchedModels.length > 0) {
-        setSelectedModel(fetchedModels[0].id)
+      try {
+        console.log('Fetching models...')
+        const fetchedModels = await fetchModels()
+        console.log('Models fetched:', fetchedModels)
+        setModels(fetchedModels)
+        if (fetchedModels.length > 0) {
+          setSelectedModel(fetchedModels[0].id)
+        }
+      } catch (error) {
+        console.error('Error loading models:', error)
+        // Fallback: set a default model for testing
+        setModels([{ id: 'longcat-chat', object: 'model', created: 0, owned_by: 'longcat' }])
+        setSelectedModel('longcat-chat')
       }
     }
     loadModels()
-  }, [])
+  }, [isClient])
 
   // Auto-scroll to bottom of generated code
   useEffect(() => {

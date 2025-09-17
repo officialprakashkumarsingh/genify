@@ -1,10 +1,9 @@
 import { type ClassValue, clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return clsx(inputs);
 }
 
 export interface ProjectFile {

@@ -9,21 +9,21 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = 'default', size = 'default', ...props }, ref) => {
+    let variantClasses = 'btn-primary';
+    if (variant === 'outline') variantClasses = 'btn-outline';
+    if (variant === 'ghost') variantClasses = 'btn-outline';
+    if (variant === 'destructive') variantClasses = 'bg-red-500 text-white';
+    
+    let sizeClasses = 'h-10 py-2 px-4';
+    if (size === 'sm') sizeClasses = 'btn-sm';
+    if (size === 'lg') sizeClasses = 'btn-lg';
+    
     return (
       <button
         className={cn(
-          "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none",
-          {
-            'bg-black text-white hover:bg-gray-800': variant === 'default',
-            'border border-gray-300 bg-transparent hover:bg-gray-50': variant === 'outline',
-            'hover:bg-gray-100': variant === 'ghost',
-            'bg-red-500 text-white hover:bg-red-600': variant === 'destructive',
-          },
-          {
-            'h-10 py-2 px-4': size === 'default',
-            'h-9 px-3 text-xs': size === 'sm',
-            'h-11 px-8': size === 'lg',
-          },
+          "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors",
+          variantClasses,
+          sizeClasses,
           className
         )}
         ref={ref}

@@ -1,13 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Disable static optimization for interactive components
+  // Force client-side rendering completely
   experimental: {
-    // Force client-side rendering
     esmExternals: 'loose',
   },
   // Ensure proper hydration
   reactStrictMode: true,
+  // Disable static optimization completely
+  trailingSlash: false,
   // Force dynamic rendering
   output: 'standalone',
 };
